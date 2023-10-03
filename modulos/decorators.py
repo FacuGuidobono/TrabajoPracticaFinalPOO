@@ -205,11 +205,16 @@ def validar_dos_input(text1: str, text2: str, tipo1: callable, tipo2: callable) 
 
 def random_name(sexo: str = None) -> str:
 
-    nombres_mujeres = ['Maria', 'Ana', 'Laura', 'Sandra', 'Elena', 'Sofía', 'Isabel', ' María', ' Ana', 'Laura']
+    nombres_mujeres = ['Maria', 'Ana', 'Laura', 'Sandra', 'Elena', 'Sofia', 'Isabel', 'Marina', ' Ana', 'Laura', 'Dora', 'Camila', 'Micaela', 'Luciana', 'Marisa']
     nombres_hombres = ['Juan', 'Pedro', 'Marcos', 'Carlos', 'Manuel', 'Jorge', 'Pablo', 'Daniel', 'Javier', 'Marcos', 'Carlos', 'Manuel', 'Jorge', 'Pablo', 'Daniel']
    
     if sexo == None:
-        return random.choice([nombres_mujeres,nombres_hombres])
+        num = random.randint(1,2)
+        if num == 1:
+               return random_name('F')
+        elif num == 2:
+               return random_name('M')
+            
     elif sexo.upper() == 'F':
         return random.choice(nombres_mujeres)
     elif sexo.upper() == 'M':
@@ -229,3 +234,14 @@ def random_dni():
 
 def random_age(inicial: int = 10, final: int = 80) -> int:
     return random.randint(inicial,final)
+
+def random_cursos() -> int:
+    return random.randint(1,6)
+
+def random_div() -> str:
+    div = ['A','B','C','D','E','F']
+    return random.choice(div)
+
+def random_materia() -> str:
+    materia = ['Matematicas','Lengua','Historia','Ingles','Fisica','Quimica']
+    return random.choice(materia)
