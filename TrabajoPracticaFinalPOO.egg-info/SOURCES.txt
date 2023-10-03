@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+TrabajoPracticaFinalPOO.egg-info/PKG-INFO
+TrabajoPracticaFinalPOO.egg-info/SOURCES.txt
+TrabajoPracticaFinalPOO.egg-info/dependency_links.txt
+TrabajoPracticaFinalPOO.egg-info/top_level.txt
+clases/__init__.py
+clases/alumno.py
+clases/encargados.py
+clases/profesores.py
+modulos/__init__.py
+modulos/crear_objetos.py
+modulos/decorators.py
