@@ -98,8 +98,8 @@ def msg_continuar():
 #                                                                                             #
 ###############################################################################################   
 
-def msg_salir():
-    printc('Saliendo...', 'green', 'bold')
+def msg_salir(mensaje: str = 'Saliendo...'):
+    printc(mensaje, 'green', 'bold')
     clear_console() 
     
 

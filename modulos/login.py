@@ -1,4 +1,6 @@
 from modulos.decorators import *
+from modulos.loginencargados import *
+from modulos.loginprofesores import *
 
 
 def login_sistema():
@@ -8,21 +10,12 @@ def login_sistema():
     match(menu_principal(opciones, titulo)):
         case 1:
             login_encargados()
-            return True
+       
         case 2:
             login_profesores()
-            return True
         case 0:
-            msg_salir()
-            return True
+            msg_salir('Volviendo al Menu Principal..')
+            return 
        
     
             
-
-def login_encargados():
-    printc('Bienvenido Encargado', 'green')
-    msg_continuar()
-
-def login_profesores():
-    printc('Bienvenido Profesor', 'green')
-    msg_continuar()   

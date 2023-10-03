@@ -12,19 +12,20 @@ from modulos.crear_objetos import *
 from modulos.login import *
 from django.contrib.auth import login
 
+#crear_base_de_datos()
 
 
-
-def main():
+def main() -> bool:
     title = 'SISTEMA DE INSCRIPCIÓN A EXÁMENES'.center(150,' ')
     match(menu_principal(['Login'], title)):
         case 1:
-            return login_sistema()
+           login_sistema()
+           return True
             
         case 0:
             return False
         
-    #crear_base_de_datos()
+    
     
     
 
