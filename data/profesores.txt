@@ -1,0 +1,15 @@
+Isabel,Rodriguez,Ingles,3,E
+Luciana,Lopez,Historia,3,F
+Marcos,Lopez,Lengua,1,D
+Marisa,Herrera,Quimica,1,C
+Micaela,Perez,Matematicas,3,E
+Dora,Gonzalez,Lengua,1,A
+Marcos,Carrasco,Fisica,2,F
+Camila,Gutierrez,Fisica,6,D
+Marisa,Gomez,Quimica,1,E
+Maria,Hernandez,Ingles,3,A
+Daniel,Gomez,Matematicas,1,D
+Ana,Perez,Ingles,5,A
+Daniel,Hernandez,Matematicas,5,A
+Pedro,Carrasco,Fisica,5,A
+Luciana,Martinez,Matematicas,4,C

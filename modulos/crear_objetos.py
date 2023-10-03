@@ -1,6 +1,9 @@
+import time
 from clases.encargados import Encargado
 from clases.profesores import Profesor
-from decorators import *
+from clases.alumnos import Alumno
+from modulos.decorators import *
+
 
 
 '''
@@ -18,16 +21,29 @@ from decorators import *
 # #creamos 10 encargados con valores random
 encargados = [ Encargado(random_name(),random_lastname(),random_dni()) for _ in range(10)]
 profesores = [ Profesor(random_name(),random_lastname(), random_materia(),random_cursos(),random_div()) for _ in range(15)]
+alumnos    = [ Alumno(random_name(),random_lastname(),random_materia(),random_cursos(),random_div(),random_notas(),random_fecha()) for _ in range(20)]
 
-for _ in range(len(encargados)):
-     print(encargados[_].nombre, encargados[_].apellido, encargados[_].dni)
+def crear_base_de_datos():
      
-printc('x'*50,'green')
+     
+     with open('data/profesores.txt', 'w') as archivo:
+     # Escribe el nombre en el archivo
+          for profesor in profesores:
+               nombre = profesor.nombre + ',' + profesor.apellido + ',' + profesor.materia + ',' + str(profesor.curso) + ',' + profesor.division + '\n'
+               archivo.write(nombre)
+     with open('data/encargados.txt', 'w') as archivo:
+          for encargado in encargados:
+               nombre = encargado.nombre + ',' + encargado.apellido + ',' + str(encargado.dni) + '\n'
+               archivo.write(nombre)
 
-for _ in range(len(profesores)):
-     print(profesores[_].nombre, profesores[_].apellido, profesores[_].materia, profesores[_].curso, profesores[_].division)
-
-
-
-
-
+     with open('data/alumnos.txt', 'a') as archivo:
+          for alumno in alumnos:
+               nombre = alumno.fecha + ','+ alumno.nombre + ',' + alumno.apellido + ',' + alumno.materia + ',' + str(alumno.curso) + ',' + alumno.division + ',' + str(alumno.nota) + '\n'
+               archivo.write(nombre)
+     print_box('                                                 SISTEMA DE INSCRIPCIÓN A EXÁMENES                                                   ', 'green')
+     printc('Por Favor, Espere Mientras Se Carga La Base De Datos..\n','yellow')
+     barra_de_carga()
+     clear_console()
+     print_box('                                                 SISTEMA DE INSCRIPCIÓN A EXÁMENES                                                   ', 'green')
+     printc('\n\n - Base de Datos Cargada Exitosamente !!\n','green')
+     time.sleep(0.2)

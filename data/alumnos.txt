@@ -1,0 +1,20 @@
+03/10/2023,Laura,Molina,Historia,2,C,3
+03/10/2023,Laura,Hernandez,Historia,4,D,3
+03/10/2023,Jorge,Molina,Fisica,1,E,9
+03/10/2023,Jorge,Gomez,Quimica,4,E,0
+03/10/2023,Daniel,Rodriguez,Lengua,6,F,0
+03/10/2023,Sandra,Carrasco,Ingles,5,C,1
+03/10/2023,Carlos,Carrasco,Lengua,5,D,4
+03/10/2023,Pablo,Fernandez,Historia,2,D,2
+03/10/2023,Jorge,Gomez,Ingles,4,D,10
+03/10/2023,Marcos,Gutierrez,Historia,3,B,-1
+03/10/2023,Marcos,Hernandez,Fisica,4,C,1
+03/10/2023,Sofia,Fernandez,Lengua,4,A,7
+03/10/2023,Dora,Herrera,Fisica,6,A,9
+03/10/2023,Daniel,Perez,Lengua,3,F,4
+03/10/2023,Laura,Fernandez,Lengua,3,E,8
+03/10/2023, Ana,Gomez,Historia,1,C,-1
+03/10/2023,Sandra,Gomez,Lengua,4,E,8
+03/10/2023,Carlos,Perez,Ingles,4,A,4
+03/10/2023,Daniel,Lopez,Matematicas,6,C,8
+03/10/2023,Manuel,Herrera,Ingles,1,F,3

@@ -1,4 +1,4 @@
-import os,time
+import os,time, sys, datetime
 import random
 
 ###############################################################################################
@@ -245,3 +245,32 @@ def random_div() -> str:
 def random_materia() -> str:
     materia = ['Matematicas','Lengua','Historia','Ingles','Fisica','Quimica']
     return random.choice(materia)
+
+def random_notas() -> int:
+    return random.randint(-1,10)
+
+def random_fecha() -> str:
+    return datetime.date.today().strftime("%d/%m/%Y")
+
+
+###############################################################################################
+#                                                                                             #
+#                       -----------   UNA SIMPLE BARRA DE CARGA  ------------                 #
+#                                                                                             #
+############################################################################################### 
+
+
+
+
+def barra_de_carga(total: int = 100) -> None :
+       
+    for i in range(total + 1):
+    
+        time.sleep(0.05)
+        longitud_barra = 50
+        progreso = i / total
+        caracteres_cargados = int(longitud_barra * progreso)
+        barra = "[" + "=" * caracteres_cargados + " " * (longitud_barra - caracteres_cargados) + "]"
+        sys.stdout.write(f"\r{barra} {int(progreso * 100)}%")
+        sys.stdout.flush()
+    
