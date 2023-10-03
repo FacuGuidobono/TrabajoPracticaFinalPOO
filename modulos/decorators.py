@@ -196,41 +196,36 @@ def validar_dos_input(text1: str, text2: str, tipo1: callable, tipo2: callable) 
         return validar_dos_input(text1, text2, tipo1,tipo2)
     
 
+###############################################################################################
+#                                                                                             #
+#                          -----------   Datos Random Para Usar  ------------                 #
+#                                                                                             #
+############################################################################################### 
 
-class DatosFake:
-    def __init__(self):
-        self.__name = ''
-        self.__lastname = ''
-        self.__dni = ''
-        
-        
-        
-    @property
-    def name(self) -> str:
-        return self.__name
+
+def random_name(sexo: str = None) -> str:
+
+    nombres_mujeres = ['Maria', 'Ana', 'Laura', 'Sandra', 'Elena', 'Sofía', 'Isabel', ' María', ' Ana', 'Laura']
+    nombres_hombres = ['Juan', 'Pedro', 'Marcos', 'Carlos', 'Manuel', 'Jorge', 'Pablo', 'Daniel', 'Javier', 'Marcos', 'Carlos', 'Manuel', 'Jorge', 'Pablo', 'Daniel']
+   
+    if sexo == None:
+        return random.choice([nombres_mujeres,nombres_hombres])
+    elif sexo.upper() == 'F':
+        return random.choice(nombres_mujeres)
+    elif sexo.upper() == 'M':
+        return random.choice(nombres_hombres)
     
-    @name.setter
-    def name(self):
-        nombres = ['Juan','Pedro','Maria','Jose','Carlos','Luis','Ana','Marta','Laura',
-                   'Jorge','Marcos','Daniel','Pablo','Sandra','Elena','Fernando','Javier',
-                  ' María',' Juan', 'Ana', 'Carlos', 'Laura', 'Manuel', 'Sofía', 'Pedro', 'Isabel', 'Luis']
-        self.__name = random.choice(nombres)
         
-    @property
-    def lastname(self) -> str:
-        return self.__lastname
-    
-    @lastname.setter
-    def lastname(self):
-        apellidos = ['Perez','Gomez','Martinez','Lopez','Gutierrez','Molina','Rodriguez','Hernandez',
+
+def random_lastname() -> str:
+    apellidos = ['Perez','Gomez','Martinez','Lopez','Gutierrez','Molina','Rodriguez','Hernandez',
                      'Herrera','Carrasco','Gonzalez','Fernandez','Perez','Lopez','Gomez','Martinez',
                      'Rodriguez','Hernandez','Herrera','Carrasco','Gonzalez','Fernandez','Perez','Lopez']
-        self.__lastname = random.choice(apellidos)
+    return random.choice(apellidos)
         
-    @property
-    def dni(self) -> int:
-        return self.__dni
-    
-    @dni.setter
-    def dni(self):
-        self.__dni = random.randint(100000000,999999999)
+
+def random_dni():
+    return random.randint(100000000,999999999)
+
+def random_age(inicial: int = 10, final: int = 80) -> int:
+    return random.randint(inicial,final)

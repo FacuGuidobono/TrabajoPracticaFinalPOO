@@ -1,5 +1,7 @@
 from clases.encargados import Encargado
-from modulos.decorators import DatosFake
+from decorators import *
+
+
 '''
 +-------------------------------------+
 |                                     |                
@@ -12,13 +14,12 @@ from modulos.decorators import DatosFake
 +-------------------------------------+
 '''
 
+# #creamos 10 encargados con valores random
+encargados = [ Encargado(random_name('f'),random_lastname(),random_dni()) for _ in range(10)]
 
+for _ in range(len(encargados)):
+     print(encargados[_].nombre, encargados[_].apellido, encargados[_].dni)
 
-fake = DatosFake() # Instanciamos la clase DatosFake para obtener nombres, apellidos y dni
-
-encargados = [Encargado(fake.name(), fake.lastname(), fake.dni()) for i in range(10)] # creamos 10 instancias de encargado y las guardamos
-
-print(encargados)
 
 
 
