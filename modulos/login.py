@@ -1,24 +1,28 @@
 from modulos.decorators import *
 
 
-def login():
-    titulo = 'Login'
+def login_sistema():
+    titulo = '                                      Login                                   '
     opciones = ['Encargados', 'Profesores']
     
     match(menu_principal(opciones, titulo)):
-        case 0:
-            login_encargados()
         case 1:
+            login_encargados()
+            return True
+        case 2:
             login_profesores()
-        case _:
-            msg_error()
-            return login()
+            return True
+        case 0:
+            msg_salir()
+            return True
        
     
             
 
 def login_encargados():
-    pass
+    printc('Bienvenido Encargado', 'green')
+    msg_continuar()
 
 def login_profesores():
-    pass    
+    printc('Bienvenido Profesor', 'green')
+    msg_continuar()   

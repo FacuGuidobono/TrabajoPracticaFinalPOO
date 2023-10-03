@@ -36,7 +36,7 @@ def crear_base_de_datos():
                nombre = encargado.nombre + ',' + encargado.apellido + ',' + str(encargado.dni) + '\n'
                archivo.write(nombre)
 
-     with open('data/alumnos.txt', 'a') as archivo:
+     with open('data/alumnos.txt', 'w') as archivo:
           for alumno in alumnos:
                nombre = alumno.fecha + ','+ alumno.nombre + ',' + alumno.apellido + ',' + alumno.materia + ',' + str(alumno.curso) + ',' + alumno.division + ',' + str(alumno.nota) + '\n'
                archivo.write(nombre)

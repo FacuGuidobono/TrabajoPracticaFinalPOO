@@ -133,13 +133,13 @@ def menu_principal(op: list, title: str = "MENU PRINCIPAL") -> int:
         opcion = int(input("Ingrese una opcion: "))
         if opcion > op_len or opcion < 0:
             msg_error()
-            menu_principal(op)
+            menu_principal(op,title)
         clear_console()
         return opcion
     except ValueError:
         msg_error()
         clear_console()
-        menu_principal(op)
+        menu_principal(op,title)
         
 ###############################################################################################
 #                                                                                             #
