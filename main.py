@@ -10,13 +10,14 @@
 from modulos.decorators import *
 from modulos.crear_objetos import *
 from modulos.login import *
-from django.contrib.auth import login
 
-#crear_base_de_datos()
+
+
 
 
 def main() -> bool:
-    title = 'SISTEMA DE INSCRIPCIÓN A EXÁMENES'.center(150,' ')
+    crear_base_de_datos()
+    title = 'SISTEMA DE INSCRIPCIÓN A EXÁMENES'.center(120,' ')
     match(menu_principal(['Login'], title)):
         case 1:
            login_sistema()
@@ -31,6 +32,7 @@ def main() -> bool:
 
 
 if __name__ == "__main__":
+   
    continuar = True
    while continuar:
        continuar = main()  

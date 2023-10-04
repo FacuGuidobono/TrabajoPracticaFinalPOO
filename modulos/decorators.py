@@ -266,7 +266,7 @@ def barra_de_carga(total: int = 100) -> None :
        
     for i in range(total + 1):
     
-        time.sleep(0.05)
+        time.sleep(0.04)
         longitud_barra = 50
         progreso = i / total
         caracteres_cargados = int(longitud_barra * progreso)

@@ -40,10 +40,12 @@ def crear_base_de_datos():
           for alumno in alumnos:
                nombre = alumno.fecha + ','+ alumno.nombre + ',' + alumno.apellido + ',' + alumno.materia + ',' + str(alumno.curso) + ',' + alumno.division + ',' + str(alumno.nota) + '\n'
                archivo.write(nombre)
-     print_box('                                                 SISTEMA DE INSCRIPCIÓN A EXÁMENES                                                   ', 'green')
+     title = 'SISTEMA DE INSCRIPCIÓN A EXÁMENES'.center(120,' ')
+     print_box(title, 'green')
      printc('Por Favor, Espere Mientras Se Carga La Base De Datos..\n','yellow')
      barra_de_carga()
      clear_console()
-     print_box('                                                 SISTEMA DE INSCRIPCIÓN A EXÁMENES                                                   ', 'green')
-     printc('\n\n - Base de Datos Cargada Exitosamente !!\n','green')
+     print_box(title, 'green')
+     print('\n')
+     printc('Base de Datos Cargada Exitosamente !!'.center(120),color='white',background='green')
      time.sleep(0.2)

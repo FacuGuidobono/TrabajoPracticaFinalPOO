@@ -21,5 +21,3 @@ def login_profesores():
     for linea in lineas:
         print(linea.strip())  # strip() elimina espacios en blanco y saltos de línea alrededor del texto
         msg_continuar()
-
-login_profesores()
