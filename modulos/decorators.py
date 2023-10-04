@@ -6,7 +6,7 @@ import random
 #  -----------  Códigos ANSI para cambiar el color del texto en la salida  ------------       #
 #                                                                                             #
 ###############################################################################################
-def printc(text: str, color=None, background=None, style=None):
+def printc(text: str = 'None', color: str='green', background: str=None, style: str=None) -> str: 
     styles = {
         "bold": "\033[1m",
         "underline": "\033[4m",
@@ -49,7 +49,7 @@ def printc(text: str, color=None, background=None, style=None):
 #                                                                                             #
 ###############################################################################################    
     
-def print_box(text:str,color=None,style='bold'):
+def print_box(text: str= 'None',color: str= 'green',style: str='bold') -> str:
 
     text_length = len(text)
 
@@ -63,7 +63,7 @@ def print_box(text:str,color=None,style='bold'):
 #                                                                                             #
 ###############################################################################################   
 
-def clear_console(tiempo=1.2) -> None:
+def clear_console(tiempo: float =1.2) -> None:
     time.sleep(tiempo)
     os.system("cls")
 
@@ -147,7 +147,7 @@ def menu_principal(op: list, title: str = "MENU PRINCIPAL") -> int:
 #                                                                                             #
 ###############################################################################################   
 
-def validar_un_input(text:str, tipo: callable) -> int:
+def validar_un_input(text:str, tipo: callable) -> callable:
     try:
         if tipo == int:
             return int(input(text))

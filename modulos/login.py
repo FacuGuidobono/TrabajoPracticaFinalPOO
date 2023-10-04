@@ -12,7 +12,7 @@ def login_sistema():
             login_encargados()
        
         case 2:
-            login_profesores()
+            login_encargados()
         case 0:
             msg_salir('Volviendo al Menu Principal..')
             return 

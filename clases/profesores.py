@@ -10,8 +10,8 @@
 
 
 
-class Profesor:
-    def __init__(self, nombre: str = 'Default', apellido: str = 'Default', materia: str = 'Default', curso: int = 0, division: int = 0):
+class Encargado:
+    def __init__(self, nombre: str = 'Default', apellido: str = 'Default', materia: str = 'Default', curso: int = 0, division: str = 'A'):
         self.__nombre = nombre
         self.__apellido = apellido
         self.__materia = materia
@@ -25,7 +25,7 @@ class Profesor:
     
     @nombre.setter
     def nombre(self, nombre:str) -> None:
-        self.__nombre = nombre
+        self.__nombre = nombre.lower()
     
     @property
     def apellido(self) -> str:
@@ -33,7 +33,7 @@ class Profesor:
     
     @apellido.setter
     def apellido(self, apellido: str) -> None:
-        self.__apellido = apellido
+        self.__apellido = apellido.lower()
         
     @property
     def materia(self) -> str:
@@ -41,7 +41,7 @@ class Profesor:
     
     @materia.setter
     def materia(self, materia:str) -> None:
-        self.__materia = materia
+        self.__materia = materia.lower()
         
     @property
     def curso(self) -> int:
@@ -54,8 +54,14 @@ class Profesor:
     @property
     def division(self) -> str:
         return self.__division
+    @division.setter
+    def division(self, division:str) -> None:
+        self.__division = division.lower()
 
-
+    def __eq__(self, otro):
+        if isinstance(otro, Encargado):
+            return self.nombre == otro.nombre and self.apellido == otro.apellido and self.materia == otro.materia and self.curso == otro.curso and self.division == otro.division
+        return False
 
  
  

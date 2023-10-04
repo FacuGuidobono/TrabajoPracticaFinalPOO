@@ -23,7 +23,7 @@ class Encargado:
     
     @nombre.setter
     def nombre(self, nombre):
-        self.__nombre = nombre
+        self.__nombre = nombre.lower()
     
     @property
     def apellido(self) -> str:
@@ -31,7 +31,7 @@ class Encargado:
     
     @apellido.setter
     def apellido(self, apellido: str) -> None:
-        self.__apellido = apellido
+        self.__apellido = apellido.lower()
        
     @property
     def dni(self) -> int:
@@ -41,7 +41,10 @@ class Encargado:
     def dni(self, dni:int) -> None:
         self.__dni = dni
 
-
+    def __eq__(self, otro):
+        if isinstance(otro, Encargado):
+            return self.nombre == otro.nombre and self.apellido == otro.apellido and self.dni == otro.dni   
+        return False
 
 
 
