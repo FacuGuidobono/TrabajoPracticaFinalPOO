@@ -6,9 +6,12 @@ TrabajoPracticaFinalPOO.egg-info/SOURCES.txt
 TrabajoPracticaFinalPOO.egg-info/dependency_links.txt
 TrabajoPracticaFinalPOO.egg-info/top_level.txt
 clases/__init__.py
-clases/alumno.py
+clases/alumnos.py
 clases/encargados.py
 clases/profesores.py
 modulos/__init__.py
 modulos/crear_objetos.py
-modulos/decorators.py 
+modulos/decorators.py
+modulos/login.py
+modulos/loginencargados.py
+modulos/loginprofesores.py

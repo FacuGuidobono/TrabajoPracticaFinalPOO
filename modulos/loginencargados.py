@@ -13,6 +13,7 @@
 from modulos.decorators import *
 from clases.encargados import Encargado
 
+
 def desempaquetado_encargados():
     
 # <------------------------------------------------------------------------------------------------------------------------------------------------------------>
@@ -36,7 +37,7 @@ def desempaquetado_encargados():
     except FileNotFoundError:
         printc(f"El archivo '{nombre_archivo}' no se encontró.",'red','yellow')
         
-        login_encargados()
+        return
     for data in encargados_data:     # Nombre       # Apellido         # DNI
         encargados.append(Encargado(data[0].lower(), data[1].lower(), int(data[2])))
     return encargados
@@ -45,20 +46,25 @@ def login_encargados():
     
     encargados = desempaquetado_encargados()
     
-    print_box('LOGIN ENCARGADOS'.center(120),'green')
+    print_box('LOGIN ENCARGADOS'.center(120),'red')
     
     nombre, apellido = validar_dos_input('Ingrese su nombre: ', 'Ingrese su apellido: ', str,str)
-    dni = validar_un_input('Ingrese su division: ', int)
+    dni = validar_un_input('Ingrese su DNI: ', int)
     
     ingreso = Encargado(nombre.lower(), apellido.lower(), int(dni))
-    printc(f'{ingreso.nombre} {ingreso.apellido} {ingreso.dni}',background='green')
+    #printc(f'{ingreso.nombre} {ingreso.apellido} {ingreso.dni}',background='green')
     
     for encargados in encargados:
-        printc(f'{encargados.nombre} {encargados.apellido} {encargados.dni}','red')
+       # printc(f'{encargados.nombre} {encargados.apellido} {encargados.dni}','red')
         if encargados == ingreso:
-            printc('BIENVENIDO ENCARGADO!!!'.center(120),'green')
-            return
+            printc('-'.center(120),'cyan', background='green')
+            print('BIENVENIDO ENCARGADO'.center(120))
+            printc('-'.center(120),'cyan', background='green')
+            msg_continuar()
+            return 'encargado'
         else: 
             print('Datos Incorrectos !!!')
-            
-login_encargados()
+            return
+
+#########################################################################          
+#login_encargados()

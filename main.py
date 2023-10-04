@@ -18,7 +18,7 @@ from modulos.login import *
 def main() -> bool:
     crear_base_de_datos()
     title = 'SISTEMA DE INSCRIPCIÓN A EXÁMENES'.center(120,' ')
-    match(menu_principal(['Login'], title)):
+    match(menu_principal(['Ingreso al Sistema'], title)):
         case 1:
            login_sistema()
            return True

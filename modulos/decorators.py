@@ -118,7 +118,7 @@ def msg_salir(mensaje: str = 'Saliendo...'):
 # |      MENU       |  
 # +++++++++++++++++++
 
-def menu_principal(op: list, title: str = "MENU PRINCIPAL") -> int:
+def menu_principal(op: list, title: str = "MENU PRINCIPAL", salir: str = 'Salir') -> int:
     clear_console()
     
     op_len =len(op) #obtengo el numero de opciones
@@ -128,7 +128,7 @@ def menu_principal(op: list, title: str = "MENU PRINCIPAL") -> int:
         
         printc(f"{i+1}. {op[i]}","green")
         
-    printc("0. Salir\n","green")
+    printc(f"0. {salir}\n","green")
     try:
         opcion = int(input("Ingrese una opcion: "))
         if opcion > op_len or opcion < 0:

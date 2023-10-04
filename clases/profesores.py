@@ -10,7 +10,7 @@
 
 
 
-class Encargado:
+class Profesor:
     def __init__(self, nombre: str = 'Default', apellido: str = 'Default', materia: str = 'Default', curso: int = 0, division: str = 'A'):
         self.__nombre = nombre
         self.__apellido = apellido
@@ -59,7 +59,7 @@ class Encargado:
         self.__division = division.lower()
 
     def __eq__(self, otro):
-        if isinstance(otro, Encargado):
+        if isinstance(otro, Profesor):
             return self.nombre == otro.nombre and self.apellido == otro.apellido and self.materia == otro.materia and self.curso == otro.curso and self.division == otro.division
         return False
 

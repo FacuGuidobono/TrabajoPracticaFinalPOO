@@ -4,15 +4,15 @@ from modulos.loginprofesores import *
 
 
 def login_sistema():
-    titulo = '                                      Login                                   '
+    titulo = 'LOGIN'.center(120)
     opciones = ['Encargados', 'Profesores']
     
-    match(menu_principal(opciones, titulo)):
+    match(menu_principal(opciones, titulo, salir='Volver')):
         case 1:
             login_encargados()
        
         case 2:
-            login_encargados()
+            login_profesores()
         case 0:
             msg_salir('Volviendo al Menu Principal..')
             return 
