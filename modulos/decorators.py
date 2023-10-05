@@ -205,7 +205,7 @@ def validar_dos_input(text1: str, text2: str, tipo1: callable, tipo2: callable) 
 
 def random_name(sexo: str = None) -> str:
 
-    nombres_mujeres = ['Maria', 'Ana', 'Laura', 'Sandra', 'Elena', 'Sofia', 'Isabel', 'Marina', ' Ana', 'Laura', 'Dora', 'Camila', 'Micaela', 'Luciana', 'Marisa']
+    nombres_mujeres = ['Maria', 'Ana', 'Laura', 'Sandra', 'Elena', 'Sofia', 'Isabel', 'Marina', 'Analia', 'Laura', 'Dora', 'Camila', 'Micaela', 'Luciana', 'Marisa']
     nombres_hombres = ['Juan', 'Pedro', 'Marcos', 'Carlos', 'Manuel', 'Jorge', 'Pablo', 'Daniel', 'Javier', 'Marcos', 'Carlos', 'Manuel', 'Jorge', 'Pablo', 'Daniel']
    
     if sexo == None:

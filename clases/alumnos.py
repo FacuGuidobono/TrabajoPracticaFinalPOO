@@ -10,7 +10,7 @@ from clases.profesores import Profesor
 '''
 
 class Alumno(Profesor):
-    def __init__(self, nombre, apellido, materia, curso, division, nota: int= -1, fecha : str = '01/01/01', profesor_nombre: str = ' ', profesor_apellido: str = ' '):
+    def __init__(self, nombre, apellido, materia, curso, division, nota, fecha, profesor_nombre , profesor_apellido):
         super().__init__(nombre, apellido, materia, curso, division)
         self.__nota = nota
         self.__fecha = fecha
@@ -51,5 +51,5 @@ class Alumno(Profesor):
     
     def __eq__(self, otro):
         if isinstance(otro, Alumno):
-            return self.nombre == otro.nombre and self.apellido == otro.apellido and self.materia == otro.materia and self.curso == otro.curso and self.division == otro.division and self.nota == otro.nota
+            return self.nombre == otro.nombre and self.apellido == otro.apellido and self.materia == otro.materia and self.curso == otro.curso and self.division == otro.division and self.nota == otro.nota and self.profesor_nombre == otro.profesor_nombre and self.profesor_apellido == otro.profesor_apellido
         return False
