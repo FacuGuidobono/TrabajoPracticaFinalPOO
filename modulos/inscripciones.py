@@ -98,7 +98,8 @@ def mod_notas(num: int, alumnos_profesor: list, total_alumnos: list) -> None:
                    alumno.nota = nueva_nota
                alumno_data = alumno.fecha + ','+ alumno.nombre + ',' + alumno.apellido + ',' + alumno.materia + ',' + str(alumno.curso) + ',' + alumno.division + ',' + str(alumno.nota) + ',' + alumno.profesor_nombre + ',' + alumno.profesor_apellido + '\n'
                archivo.write(alumno_data)
-
+    
+    clear_console()
     printc('Nota Modicicada Con Exito','green')
     clear_console()
     tabla_un_alumno(i, alumnos_profesor) #mostrar datos modificados
@@ -116,26 +117,39 @@ def mod_notas(num: int, alumnos_profesor: list, total_alumnos: list) -> None:
 
 def menu_profesores(usuario: 'Profesor'):
 
+    clear_console()
+    continuar = True
     total_alumnos = desempaquetado_alumnos() # despaquetado de todos los alumnos inscriptos
     alumnos_profesor = []
+
     for alumno in total_alumnos:
         if alumno.materia == usuario.materia and alumno.division == usuario.division and alumno.curso == usuario.curso:
             alumnos_profesor.append(alumno)
 
-    tabla_alumnos(alumnos_profesor) #muestra los alumnos del profesor
+    while continuar:
+        op = menu_principal(['Modificar Notas'],'MENU PROFESORES',salir='Atras')
+        if op == 1:
 
-    num = validar_un_input(' Ingrese el numero del alumno que desea modificar/agregar nota: ',int)
+            tabla_alumnos(alumnos_profesor) #muestra los alumnos del profesor
 
-    if num > len(alumnos_profesor) and num <= 0:
-        clear_console()
-        msg_error("El numero ingresado no corresponde a ningun alumno")
-        menu_profesores(usuario)
-    
-    mod_notas(num, alumnos_profesor, total_alumnos)
-    clear_console()
-    tabla_alumnos(alumnos_profesor)
-    msg_continuar()
-    return
+            num = validar_un_input(' Ingrese el numero del alumno que desea modificar/agregar nota: ',int)
+
+            if num > len(alumnos_profesor) and num <= 0:
+                clear_console()
+                msg_error("El numero ingresado no corresponde a ningun alumno")
+                continuar = False
+                return continuar
+            
+            mod_notas(num, alumnos_profesor, total_alumnos)
+            clear_console()
+            tabla_alumnos(alumnos_profesor)
+            msg_continuar()
+            return 
+        
+        if op == 0:
+            continuar = False
+            return continuar
+       
 
 
 

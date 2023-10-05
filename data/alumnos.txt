@@ -1,6 +1,6 @@
 05/10/2023,pablo,carrasco,matematicas,1,d,2,Manuel,Gomez
 05/10/2023,sandra,perez,quimica,1,a,7,Luciana,Lopez
-05/10/2023,micaela,herrera,matematicas,1,d,6,Manuel,Gomez
+05/10/2023,micaela,herrera,matematicas,1,d,2,Manuel,Gomez
 05/10/2023,jorge,carrasco,historia,4,b,9,Pablo,Perez
 05/10/2023,jorge,fernandez,matematicas,1,d,6,Manuel,Gomez
 05/10/2023,javier,hernandez,historia,4,b,4,Pablo,Perez
