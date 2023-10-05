@@ -74,11 +74,12 @@ def login_profesores():
             clear_console()
             printc('-'.center(120),'cyan', background='green')
             print('BIENVENIDO PROFESOR'.center(120))
-            print(f'{usuario.nombre} {usuario.apellido}'.center(120))
+            print(f'{usuario.nombre.upper()} {usuario.apellido.upper()}'.center(120))
             printc('-'.center(120),'cyan', background='green')
 
             #se ingresa al sistema de inscripciones
             menu_profesores(usuario)
+            return 'exito'
 
 
     clear_console()

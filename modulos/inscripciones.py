@@ -62,13 +62,13 @@ def tabla_alumnos(alumnos: list, usuario: str = None) -> None:
 
 ################################################################################################################################################################################################
 #<----------------------------------------------------------------------------------------------------------------------------------------------------------
-def tabla_un_alumno(num: int, alumnos_profesor: list) -> None:
+def tabla_un_alumno(i: int, alumnos_profesor: list) -> None:
     clear_console()
     printc(f'''
 +-------------------------------------------------------------------------------------------------------------+
 |N°      |       FECHA         |       NOMBRE        |      APELLIDO       |       MATERIA       |     NOTA   |               
 +-------------------------------------------------------------------------------------------------------------+ 
-| {str(num).center(3)}.   |   {alumnos_profesor[num - 1].fecha.center(15)}   |   {alumnos_profesor[num - 1].nombre.center(15)}   |   {alumnos_profesor[num - 1].apellido.center(15)}   |   {alumnos_profesor[num - 1].materia.center(15)}   |   {str(alumnos_profesor[num - 1].nota).center(3)}      |
+| {str(i + 1).center(3)}.   |   {alumnos_profesor[i].fecha.center(15)}   |   {alumnos_profesor[i].nombre.center(15)}   |   {alumnos_profesor[i].apellido.center(15)}   |   {alumnos_profesor[i].materia.center(15)}   |   {str(alumnos_profesor[i].nota).center(3)}      |
 +-------------------------------------------------------------------------------------------------------------+                                                        ''','yellow')
 ##############################################################################################################
 
@@ -78,23 +78,30 @@ def tabla_un_alumno(num: int, alumnos_profesor: list) -> None:
 
 
 
-def mod_notas(num, alumnos_profesor: list) -> None:
+def mod_notas(num: int, alumnos_profesor: list, total_alumnos: list) -> None:
+    i = num -1
+    tabla_un_alumno(i, alumnos_profesor)
     
-    tabla_un_alumno(num, alumnos_profesor)
-  
+
     nueva_nota = validar_un_input(' Ingrese la nueva nota: ',int)
     
     if nueva_nota > 10 or nueva_nota < 0: # nota valida
         clear_console()
         msg_error("La nota ingresada no es valida")
+        return
 
     #tengo que abrir el archivo alumnos.txt y actualizar la nota
-    
-    alumnos_profesor[num - 1].nota = nueva_nota #asignar nueva nota
+
+    with open('data/alumnos.txt', 'w') as archivo:
+          for alumno in total_alumnos:
+               if alumnos_profesor[i] == alumno:
+                   alumno.nota = nueva_nota
+               alumno_data = alumno.fecha + ','+ alumno.nombre + ',' + alumno.apellido + ',' + alumno.materia + ',' + str(alumno.curso) + ',' + alumno.division + ',' + str(alumno.nota) + ',' + alumno.profesor_nombre + ',' + alumno.profesor_apellido + '\n'
+               archivo.write(alumno_data)
 
     printc('Nota Modicicada Con Exito','green')
-
-    tabla_un_alumno(num, alumnos_profesor) #mostrar datos modificados
+    clear_console()
+    tabla_un_alumno(i, alumnos_profesor) #mostrar datos modificados
     msg_continuar()
 
 
@@ -122,8 +129,12 @@ def menu_profesores(usuario: 'Profesor'):
     if num > len(alumnos_profesor) and num <= 0:
         clear_console()
         msg_error("El numero ingresado no corresponde a ningun alumno")
+        menu_profesores(usuario)
     
-    mod_notas(num, alumnos_profesor)
+    mod_notas(num, alumnos_profesor, total_alumnos)
+    clear_console()
+    tabla_alumnos(alumnos_profesor)
+    msg_continuar()
     return
 
 
