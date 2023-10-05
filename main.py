@@ -12,11 +12,14 @@ from modulos.crear_objetos import *
 from modulos.login import *
 
 
-
+ 
 
 
 def main() -> bool:
-    #  crear_base_de_datos()   #crea los archivos txt necesarios para el funcionamiento del sistema si es que no existen con datos aleatorios
+    #Descomentar parar rcrea los archivos con datos aleatorios txt necesarios 
+    # para el funcionamiento del sistema si es que estos no existen.
+    #crear_base_de_datos()
+    
     title = 'SISTEMA DE INSCRIPCIÓN A EXÁMENES'.center(120,' ')
     match(menu_principal(['Ingreso al Sistema'], title)):
         case 1:

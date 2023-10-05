@@ -1,30 +1,20 @@
-04/10/2023,Pablo,Rodriguez,Ingles,6,D,7, , 
-04/10/2023,Luciana,Rodriguez,Quimica,3,F,5, , 
-04/10/2023,Luciana,Hernandez,Lengua,6,C,-1, , 
-04/10/2023,Dora,Hernandez,Matematicas,2,E,3, , 
-04/10/2023,Marcos,Perez,Quimica,4,E,3, , 
-04/10/2023,Daniel,Perez,Matematicas,2,E,9, , 
-04/10/2023,Camila,Lopez,Matematicas,6,B,6, , 
-04/10/2023,Javier,Fernandez,Lengua,5,B,10, , 
-04/10/2023,Jorge,Perez,Quimica,5,D,7, , 
-04/10/2023,Marcos,Herrera,Quimica,6,F,7, , 
-04/10/2023,Carlos,Herrera,Historia,1,E,9, , 
-04/10/2023,Javier,Gomez,Fisica,1,B,9, , 
-04/10/2023,Pablo,Hernandez,Matematicas,5,F,10, , 
-04/10/2023,Dora,Martinez,Quimica,4,B,1, , 
-04/10/2023,Carlos,Martinez,Lengua,3,F,10, , 
-04/10/2023,Carlos,Martinez,Quimica,5,D,6, , 
-04/10/2023,Carlos,Martinez,Lengua,4,D,9, , 
-04/10/2023,Jorge,Gomez,Fisica,1,A,-1, , 
-04/10/2023,Marisa,Gonzalez,Lengua,2,D,10,Carlos,Gomez
-04/10/2023,Javier,Fernandez,Quimica,3,E,-1, , 
-04/10/2023,Daniel,Gonzalez,Historia,6,A,3, , 
-04/10/2023, Ana,Lopez,Quimica,3,E,4, , 
-04/10/2023,Sandra,Perez,Ingles,2,B,7, , 
-04/10/2023,Maria,Molina,Fisica,2,E,4, , 
-04/10/2023,Daniel,Hernandez,Matematicas,4,E,2,Jorge,Fernandez
-04/10/2023,Pablo,Martinez,Matematicas,5,D,6, , 
-04/10/2023, Ana,Martinez,Matematicas,2,B,7, , 
-04/10/2023,Maria,Gutierrez,Fisica,1,E,4, , 
-04/10/2023,Marina,Lopez,Lengua,3,C,4, , 
-04/10/2023,Marcos,Perez,Quimica,5,C,4, , 
+05/10/2023,Pablo,Carrasco,Matematicas,1,d,2,Manuel,Gomez
+05/10/2023,Sandra,Perez,Quimica,1,a,7,Luciana,Lopez
+05/10/2023,Micaela,Herrera,Matematicas,1,d,7,Manuel,Gomez
+05/10/2023,Jorge,Carrasco,Historia,4,b,2,Pablo,Perez
+05/10/2023,Jorge,Fernandez,Matematicas,1,d,0,Manuel,Gomez
+05/10/2023,Javier,Hernandez,Historia,4,b,4,Pablo,Perez
+05/10/2023,Laura,Perez,Historia,4,b,4,Pablo,Perez
+05/10/2023,Daniel,Martinez,Quimica,1,a,10,Luciana,Lopez
+05/10/2023,Marcos,Carrasco,Quimica,1,a,2,Luciana,Lopez
+05/10/2023,Manuel,Martinez,Ingles,5,d,5,Analia,Martinez
+05/10/2023,Manuel,Lopez,Lengua,2,e,2,Laura,Carrasco
+05/10/2023,Pedro,Perez,Fisica,1,c,9,Sandra,Herrera
+05/10/2023,Jorge,Carrasco,Lengua,2,e,9,Laura,Carrasco
+05/10/2023,Micaela,Lopez,Historia,4,b,3,Pablo,Perez
+05/10/2023,Daniel,Rodriguez,Matematicas,1,d,5,Manuel,Gomez
+05/10/2023,Pablo,Carrasco,Lengua,2,e,-1,Laura,Carrasco
+05/10/2023,Ana,Gomez,Ingles,5,d,5,Analia,Martinez
+05/10/2023,Maria,Martinez,Ingles,5,d,-1,Analia,Martinez
+05/10/2023,Daniel,Herrera,Quimica,1,a,4,Luciana,Lopez
+05/10/2023,Micaela,Hernandez,Quimica,1,a,4,Luciana,Lopez
