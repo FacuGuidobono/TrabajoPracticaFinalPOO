@@ -12,7 +12,7 @@
 
 from modulos.decorators import *
 from clases.encargados import Encargado
-
+from modulos.inscripciones import *
 
 def desempaquetado_encargados():
     
@@ -51,20 +51,20 @@ def login_encargados():
     nombre, apellido = validar_dos_input('Ingrese su nombre: ', 'Ingrese su apellido: ', str,str)
     dni = validar_un_input('Ingrese su DNI: ', int)
     
-    ingreso = Encargado(nombre.lower(), apellido.lower(), int(dni))
+    usuario = Encargado(nombre.lower(), apellido.lower(), int(dni))
     #printc(f'{ingreso.nombre} {ingreso.apellido} {ingreso.dni}',background='green')
     
     for encargados in encargados:
        # printc(f'{encargados.nombre} {encargados.apellido} {encargados.dni}','red')
-        if encargados == ingreso:
+        if encargados == usuario:
             printc('-'.center(120),'cyan', background='green')
             print('BIENVENIDO ENCARGADO'.center(120))
             printc('-'.center(120),'cyan', background='green')
-            msg_continuar()
+            menu_encargados(usuario)
             return 'encargado'
         else: 
             print('Datos Incorrectos !!!')
             return
 
 #########################################################################          
-#login_encargados()
+login_encargados()

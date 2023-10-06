@@ -1,13 +1,13 @@
 05/10/2023,pablo,carrasco,matematicas,1,d,2,Manuel,Gomez
 05/10/2023,sandra,perez,quimica,1,a,7,Luciana,Lopez
-05/10/2023,micaela,herrera,matematicas,1,d,2,Manuel,Gomez
+05/10/2023,micaela,herrera,matematicas,1,d,8,Manuel,Gomez
 05/10/2023,jorge,carrasco,historia,4,b,9,Pablo,Perez
 05/10/2023,jorge,fernandez,matematicas,1,d,6,Manuel,Gomez
 05/10/2023,javier,hernandez,historia,4,b,4,Pablo,Perez
 05/10/2023,laura,perez,historia,4,b,4,Pablo,Perez
 05/10/2023,daniel,martinez,quimica,1,a,10,Luciana,Lopez
 05/10/2023,marcos,carrasco,quimica,1,a,2,Luciana,Lopez
-05/10/2023,manuel,martinez,ingles,5,d,5,Analia,Martinez
+05/10/2023,manuel,martinez,ingles,5,d,4,Analia,Martinez
 05/10/2023,manuel,lopez,lengua,2,e,2,Laura,Carrasco
 05/10/2023,pedro,perez,fisica,1,c,9,Sandra,Herrera
 05/10/2023,jorge,carrasco,lengua,2,e,9,Laura,Carrasco

@@ -53,3 +53,7 @@ class Alumno(Profesor):
         if isinstance(otro, Alumno):
             return self.nombre == otro.nombre and self.apellido == otro.apellido and self.materia == otro.materia and self.curso == otro.curso and self.division == otro.division and self.nota == otro.nota and self.profesor_nombre == otro.profesor_nombre and self.profesor_apellido == otro.profesor_apellido
         return False
+    
+    
+    
+    
