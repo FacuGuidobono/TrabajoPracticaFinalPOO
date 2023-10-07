@@ -14,17 +14,19 @@ from modulos.decorators import *
 from clases.encargados import Encargado
 from modulos.inscripciones import *
 
+
+#####################################################################################################################
 def desempaquetado_encargados():
     
-# <------------------------------------------------------------------------------------------------------------------------------------------------------------>
-    printc('Por Favor, Espere Mientras Se Carga La Base De Datos..\n','yellow')
-    #barra_de_carga()
-    clear_console()
-    print('\n')
-    printc('Base de Datos Cargada Exitosamente !!'.center(120),color='white',background='green')
-    time.sleep(0.2)
-    clear_console()
-# <------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+    # printc('Por Favor, Espere Mientras Se Carga La Base De Datos..\n','yellow')
+    # #barra_de_carga()
+    # clear_console()
+    # print('\n')
+    # printc('Base de Datos Cargada Exitosamente !!'.center(120),color='white',background='green')
+    # time.sleep(0.2)
+    # clear_console()
+
     
     encargados_data = []
     encargados = []
@@ -42,6 +44,7 @@ def desempaquetado_encargados():
         encargados.append(Encargado(data[0].lower(), data[1].lower(), int(data[2])))
     return encargados
 #####################################################################################################################
+
 def login_encargados():   
     
     encargados = desempaquetado_encargados()
@@ -60,11 +63,14 @@ def login_encargados():
             printc('-'.center(120),'cyan', background='green')
             print('BIENVENIDO ENCARGADO'.center(120))
             printc('-'.center(120),'cyan', background='green')
-            menu_encargados(usuario)
-            return 'encargado'
+            clear_console()
+            menu_encargados()
+            return 
         else: 
-            print('Datos Incorrectos !!!')
-            return
+            msg_error('Datos Incorrectos !!!')
+            clear_console()
+            return login_encargados()
 
-#########################################################################          
+#######################################################################################################################          
+
 login_encargados()

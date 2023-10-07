@@ -18,3 +18,7 @@
 05/10/2023,maria,martinez,ingles,5,d,-1,Analia,Martinez
 05/10/2023,daniel,herrera,quimica,1,a,4,Luciana,Lopez
 05/10/2023,micaela,hernandez,quimica,1,a,4,Luciana,Lopez
+07/08/2024,facundo,guidobono,matematicas,1,a,-1,facundo,guidobono
+07/08/1990,gabriel,cohelo,musica,1,a,-1,Lechuga,lechugon
+07/08/2024,sebastian,peralta,arte,2,b,-1,pablo,mielgo
+07/08/2024,martin,insaurralde,politica,4,c,-1,javier,milei

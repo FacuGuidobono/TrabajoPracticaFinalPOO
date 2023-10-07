@@ -12,20 +12,20 @@
 
 from modulos.decorators import *
 from clases.profesores import Profesor
-from inscripciones import *
+from modulos.inscripciones import *
 
 
 
 
 def desempaquetado_profesores():
 # <------------------------------------------------------------------------------------------------------------------------------------------------------------>
-    printc('Por Favor, Espere Mientras Se Carga La Base De Datos..\n','yellow')
-    #barra_de_carga()
-    clear_console()
-    print('\n')
-    printc('Base de Datos Cargada Exitosamente !!'.center(120),color='white',background='green')
-    time.sleep(0.2)
-    clear_console()
+    # printc('Por Favor, Espere Mientras Se Carga La Base De Datos..\n','yellow')
+    # #barra_de_carga()
+    # clear_console()
+    # print('\n')
+    # printc('Base de Datos Cargada Exitosamente !!'.center(120),color='white',background='green')
+    # time.sleep(0.2)
+    # clear_console()
 # <------------------------------------------------------------------------------------------------------------------------------------------------------------>
     
     profesores_data = []
@@ -44,8 +44,6 @@ def desempaquetado_profesores():
         profesores.append(Profesor(data[0].lower(), data[1].lower(), data[2].lower(), int(data[3]), data[4].lower()))
     return profesores
 #####################################################################################################################
-
-
 
 
 
@@ -79,15 +77,15 @@ def login_profesores():
 
             #se ingresa al sistema de inscripciones
             menu_profesores(usuario)
-            return 'exito'
-
-
-    clear_console()
-    msg_error('El Usuario No Existe, Verifique sus Datos\n y vuelva a intentarlo      ')
-    return
+            return 
+        
+        else:
+            clear_console()
+            msg_error('El Usuario No Existe, Verifique sus Datos\n y vuelva a intentarlo      ')
+            return login_profesores()
         
         
 
 #######################################################################################################################         
 
-login_profesores()
+#login_profesores()

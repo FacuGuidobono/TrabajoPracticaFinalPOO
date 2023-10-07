@@ -8,11 +8,26 @@
 +-------------------------------------+
 '''
 from modulos.decorators import *
-from modulos.crear_objetos import *
 from modulos.login import *
+#from modulos.crear_objetos import *
 
 
- 
+
+def login_sistema():
+    titulo = 'LOGIN'.center(120)
+    opciones = ['Encargados', 'Profesores']
+    
+    op = menu_principal(opciones, titulo, salir='Volver')
+    
+    
+    if op ==  1:
+            login_encargados()
+    elif op == 2:
+            login_profesores()
+    elif 0:
+            msg_salir('Volviendo al Menu Principal..')
+       
+    
 
 
 def main() -> bool:
