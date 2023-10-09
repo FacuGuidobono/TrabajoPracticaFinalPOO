@@ -419,6 +419,7 @@ def delete_alumno(num: int, total_alumnos: list) -> None:
 # <------------------------------------------------------------------------------------------------------------------------------------------------------------>
       
 def x(total_alumnos: list, func: callable, txt_validar: str = 'Default') -> None:  #str = 'Default'
+   
     
     tabla_alumnos_encargado(total_alumnos)
 
@@ -438,7 +439,7 @@ def x(total_alumnos: list, func: callable, txt_validar: str = 'Default') -> None
     else:
         clear_console()
         msg_error("El numero ingresado no corresponde a ningun alumno")
-        return menu_encargados()
+        return x(total_alumnos,func,txt_validar)
         
     
 # <------------------------------------------------------------------------------------------------------------------------------------------------------------> 
@@ -469,11 +470,11 @@ def menu_encargados():
             
     elif op == 2:
         
-        x(total_alumnos, mod_alumnos, 'Modificar Alumno del Sistema: ')
+        x(total_alumnos, mod_alumnos, 'Ingresar N° Alumno a Modificar del Sistema: ')
         clear_console()
         return menu_encargados()
     elif op == 3:
-        x(total_alumnos, delete_alumno, 'Eliminar Alumno del Sistema: ')
+        x(total_alumnos, delete_alumno, 'Ingresar N° Alumno a Eliminar del Sistema: ')
         clear_console()
         return menu_encargados()
                              
