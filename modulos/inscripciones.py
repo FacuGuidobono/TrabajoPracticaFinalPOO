@@ -235,19 +235,24 @@ def delete_nota(num: int, alumnos_profesor: list, total_alumnos: list) -> None:
 
 # <------------------------------------------------------------------------------------------------------------------------------------------------------------>
       
-def y(alumnos_profesor: list, total_alumnos:  list, func: callable, txt_validar: str = 'Default') -> None:  #str = 'Default'
+def y(usuario: 'Profesor', alumnos_profesor: list, total_alumnos:  list, func: callable, txt_validar: str = 'Default') -> None:  #str = 'Default'
     
+    mod_alumnos_profesor = []
     tabla_alumnos(alumnos_profesor) #muestra los alumnos del profesor
 
     num = validar_un_input(txt_validar,int)  #' Ingrese el numero del alumno que desea Modificar/Eliminar: '
 
     if 0 <= num <= len(alumnos_profesor):
             
-        mod_tabla_alumnos = func(num, alumnos_profesor, total_alumnos)
+        mod_total_alumnos = func(num, alumnos_profesor, total_alumnos)
             
         clear_console()
-            
-        tabla_alumnos_encargado(mod_tabla_alumnos)
+        
+
+        for alumno in mod_total_alumnos:
+            if alumno.materia == usuario.materia and alumno.division == usuario.division and alumno.curso == usuario.curso:
+                mod_alumnos_profesor.append(alumno)    
+        tabla_alumnos(mod_alumnos_profesor)
         
         msg_continuar()
         
@@ -289,12 +294,12 @@ def menu_profesores(usuario: 'Profesor'):
     
     if op == 1:
         
-        y(alumnos_profesor,total_alumnos,mod_notas,'Ingrese el N° de Alumno que quiere Modificar la Nota: ')    
+        y(usuario,alumnos_profesor,total_alumnos,mod_notas,'Ingrese el N° de Alumno que quiere Modificar la Nota: ')    
         clear_console()
         return menu_profesores(usuario)
 
     elif op == 2: 
-        y(alumnos_profesor,total_alumnos,delete_nota,'Ingrese el N° de Alumno que quiere Eliminar la Nota: ')    
+        y(usuario, alumnos_profesor,total_alumnos,delete_nota,'Ingrese el N° de Alumno que quiere Eliminar la Nota: ')    
         clear_console()       
         return menu_profesores(usuario)
         

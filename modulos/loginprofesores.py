@@ -67,16 +67,17 @@ def login_profesores():
             printc('-'.center(120),'cyan', background='green')
 
             #se ingresa al sistema de inscripciones
-            menu_profesores(usuario)
-            return 
+            
+            return menu_profesores(usuario)
         
-        else:
-            clear_console()
-            msg_error('El Usuario No Existe, Verifique sus Datos\n y vuelva a intentarlo      ')
-            return login_profesores()
+     
+    clear_console()
+    msg_error('El Usuario No Existe, Verifique sus Datos\n y vuelva a intentarlo      ')
+    return login_profesores()
         
         
 
 #######################################################################################################################         
 
 
+login_profesores()
