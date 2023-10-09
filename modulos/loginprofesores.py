@@ -18,16 +18,7 @@ from modulos.inscripciones import *
 
 
 def desempaquetado_profesores():
-# <------------------------------------------------------------------------------------------------------------------------------------------------------------>
-    # printc('Por Favor, Espere Mientras Se Carga La Base De Datos..\n','yellow')
-    # #barra_de_carga()
-    # clear_console()
-    # print('\n')
-    # printc('Base de Datos Cargada Exitosamente !!'.center(120),color='white',background='green')
-    # time.sleep(0.2)
-    # clear_console()
-# <------------------------------------------------------------------------------------------------------------------------------------------------------------>
-    
+
     profesores_data = []
     profesores = []
     nombre_archivo = "data/profesores.txt"
@@ -88,4 +79,4 @@ def login_profesores():
 
 #######################################################################################################################         
 
-#login_profesores()
+

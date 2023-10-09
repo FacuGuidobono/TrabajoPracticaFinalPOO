@@ -13,7 +13,7 @@ from clases.profesores import Profesor
 from modulos.decorators import *
 
 
-
+##########################   PROFESORES #####################################
 
 
 '''
@@ -187,14 +187,78 @@ def mod_notas(num: int, alumnos_profesor: list, total_alumnos: list) -> None:
                alumno_data = alumno.fecha + ','+ alumno.nombre + ',' + alumno.apellido + ',' + alumno.materia + ',' + str(alumno.curso) + ',' + alumno.division + ',' + str(alumno.nota) + ',' + alumno.profesor_nombre + ',' + alumno.profesor_apellido + '\n'
                archivo.write(alumno_data)
     
-    
-    printc('Nota Modicicada Con Exito','green')
-    #tabla_un_alumno(i, alumnos_profesor) #mostrar datos modificados
+    printc('Modificando Nota del Alumno..\n','yellow')
+    barra_de_carga()
+    clear_console()
+    print('\n')
+    time.sleep(0.2)
+    printc('Nota Modificada Con Exito','green')
     msg_continuar()
-
+    return total_alumnos
 # <------------------------------------------------------------------------------------------------------------------------------------------------------------>
 
+'''
++-------------------------------------------+
+|                                           |                
+|                                           |    
+|  ELIMINAR NOTA ALUMNO DE LA BASE DE DATOS |   
+|                                           |
+|                                           |            
++-------------------------------------------+
+'''
+def delete_nota(num: int, alumnos_profesor: list, total_alumnos: list) -> None:
+    clear_console()
     
+   
+    
+    i = num -1
+    tabla_un_alumno(i, alumnos_profesor)
+
+    printc('Eliminando Nota del Alumno..\n','yellow')
+    barra_de_carga()
+    clear_console()
+    print('\n')
+    time.sleep(0.2)
+
+    with open('data/alumnos.txt', 'w') as archivo:
+        
+        for alumno in total_alumnos:
+
+                if alumnos_profesor[i] == alumno:
+                    alumno.nota = -1
+                alumno_data = alumno.fecha + ','+ alumno.nombre + ',' + alumno.apellido + ',' + alumno.materia + ',' + str(alumno.curso) + ',' + alumno.division + ',' + str(alumno.nota) + ',' + alumno.profesor_nombre + ',' + alumno.profesor_apellido + '\n'
+                archivo.write(alumno_data)
+    clear_console()    
+    printc('Nota eliminada Con Exito','green')
+  
+    return total_alumnos
+
+# <------------------------------------------------------------------------------------------------------------------------------------------------------------>
+      
+def y(alumnos_profesor: list, total_alumnos:  list, func: callable, txt_validar: str = 'Default') -> None:  #str = 'Default'
+    
+    tabla_alumnos(alumnos_profesor) #muestra los alumnos del profesor
+
+    num = validar_un_input(txt_validar,int)  #' Ingrese el numero del alumno que desea Modificar/Eliminar: '
+
+    if 0 <= num <= len(alumnos_profesor):
+            
+        mod_tabla_alumnos = func(num, alumnos_profesor, total_alumnos)
+            
+        clear_console()
+            
+        tabla_alumnos_encargado(mod_tabla_alumnos)
+        
+        msg_continuar()
+        
+        
+    else:
+        clear_console()
+        msg_error("El numero ingresado no corresponde a ningun alumno")
+        return menu_encargados()
+        
+    
+# <------------------------------------------------------------------------------------------------------------------------------------------------------------>    
     
 '''
 +-------------------------------------+
@@ -211,36 +275,42 @@ def mod_notas(num: int, alumnos_profesor: list, total_alumnos: list) -> None:
 def menu_profesores(usuario: 'Profesor'):
 
     clear_console()
-    continuar = True
+    
     total_alumnos = desempaquetado_alumnos() # despaquetado de todos los alumnos inscriptos
     alumnos_profesor = []
 
     for alumno in total_alumnos:
         if alumno.materia == usuario.materia and alumno.division == usuario.division and alumno.curso == usuario.curso:
             alumnos_profesor.append(alumno)
-
-    while True:
-        op = menu_principal(['Modificar Notas'],'MENU PROFESORES',salir='Atras')
-        if op == 1:
-
-            tabla_alumnos(alumnos_profesor) #muestra los alumnos del profesor
-
-            num = validar_un_input(' Ingrese el numero del alumno que desea modificar/agregar nota: ',int)
-
-            if num > len(alumnos_profesor) and num <= 0:
-                clear_console()
-                msg_error("El numero ingresado no corresponde a ningun alumno")
-                
-            
-            mod_notas(num, alumnos_profesor, total_alumnos)
-            clear_console()
-            tabla_alumnos(alumnos_profesor)
-            msg_continuar()
-            
+    
+    
+    
+    op = menu_principal(['Modificar Notas', 'Eliminar Notas'],'MENU PROFESORES',salir='Atras')
+    
+    if op == 1:
         
-        if op == 0:
-            break
+        y(alumnos_profesor,total_alumnos,mod_notas,'Ingrese el N° de Alumno que quiere Modificar la Nota: ')    
+        clear_console()
+        return menu_profesores(usuario)
+
+    elif op == 2: 
+        y(alumnos_profesor,total_alumnos,delete_nota,'Ingrese el N° de Alumno que quiere Eliminar la Nota: ')    
+        clear_console()       
+        return menu_profesores(usuario)
+        
+    elif op == 0:
+        return
+        
+        
+        
+        
+        
 # <------------------------------------------------------------------------------------------------------------------------------------------------------------>      
+
+
+########################## ENCARGADOS ###########################################
+
+
 
 '''
 +-------------------------------------+
@@ -264,6 +334,11 @@ def add_alumnos(total_alumnos: list) -> None:
                     alumno = Alumno(validar_un_input('Ingrese el nuevo nombre: ',str), validar_un_input('Ingrese el nuevo apellido: ',str), validar_un_input('Ingrese la nueva materia: ',str), validar_un_input('Ingrese el nuevo curso: ',int),validar_un_input('Ingrese la nueva division: ',str),-1,validar_un_input('Ingrese la nueva fecha de inscripcion dd/mm/aaaa: ',str), validar_un_input('Ingrese el nombre del nuevo profesor: ',str), validar_un_input('ingrese el apellido del nuevo profesor: ',str))
                     alumno_data = alumno.fecha + ','+ alumno.nombre + ',' + alumno.apellido + ',' + alumno.materia + ',' + str(alumno.curso) + ',' + alumno.division + ',' + str(alumno.nota) + ',' + alumno.profesor_nombre + ',' + alumno.profesor_apellido + '\n'
                     archivo.write(alumno_data)
+    printc('Agregando Alumno..\n','yellow')
+    barra_de_carga()
+    clear_console()
+    print('\n')
+    clear_console()
     mod_tabla_alumnos = desempaquetado_alumnos()
     tabla_alumnos_encargado(mod_tabla_alumnos)               
     printc('Alumno Agregado Con Exito','green')       
@@ -284,18 +359,20 @@ def mod_alumnos(num: int, total_alumnos: list) -> None:
 
     i = num -1
     tabla_un_alumno_encargado(i, total_alumnos)
+    nuevos_datos_alumno = Alumno(validar_un_input('Ingrese el nuevo nombre: ',str), validar_un_input('Ingrese el nuevo apellido: ',str), validar_un_input('Ingrese la nueva materia: ',str), validar_un_input('Ingrese el nuevo curso: ',int),validar_un_input('Ingrese la nueva division: ',str),-1,validar_un_input('Ingrese la nueva fecha de inscripcion dd/mm/aaaa: ',str), validar_un_input('Ingrese el nombre del nuevo profesor: ',str), validar_un_input('ingrese el apellido del nuevo profesor: ',str))
+    total_alumnos[i] = nuevos_datos_alumno
+    printc('Modificando  Alumno..\n','yellow')
+    barra_de_carga()
+    clear_console()
+    print('\n')
+    
     
     with open('data/alumnos.txt', 'w') as archivo:
-          for alumno in total_alumnos:
-                if total_alumnos[i] == alumno:
-                    total_alumnos[i] = Alumno(validar_un_input('Ingrese el nuevo nombre: ',str), validar_un_input('Ingrese el nuevo apellido: ',str), validar_un_input('Ingrese la nueva materia: ',str), validar_un_input('Ingrese el nuevo curso: ',int),validar_un_input('Ingrese la nueva division: ',str),-1,validar_un_input('Ingrese la nueva fecha de inscripcion dd/mm/aaaa: ',str), validar_un_input('Ingrese el nombre del nuevo profesor: ',str), validar_un_input('ingrese el apellido del nuevo profesor: ',str))
+          for alumno in total_alumnos:   
                 alumno_data = alumno.fecha + ','+ alumno.nombre + ',' + alumno.apellido + ',' + alumno.materia + ',' + str(alumno.curso) + ',' + alumno.division + ',' + str(alumno.nota) + ',' + alumno.profesor_nombre + ',' + alumno.profesor_apellido + '\n'
                 archivo.write(alumno_data)
-    mod_total_alumnos = desempaquetado_alumnos()
-    clear_console()
-    tabla_alumnos_encargado(mod_total_alumnos)
-    printc('Alumno Modificado Con Exito','green')
-    msg_continuar()   
+    printc('Alumno Modificado Con Exito','green')            
+    return total_alumnos
 
 # <------------------------------------------------------------------------------------------------------------------------------------------------------------>
 
@@ -309,22 +386,30 @@ def mod_alumnos(num: int, total_alumnos: list) -> None:
 +-------------------------------------+
 '''
 def delete_alumno(num: int, total_alumnos: list) -> None:
+    clear_console()
+    
+   
     
     i = num -1
     tabla_un_alumno_encargado(i, total_alumnos)
-   
-                
+    del total_alumnos[i]
+    printc('Eliminando Alumno..\n','yellow')
+    barra_de_carga()
+    clear_console()
+    print('\n')
     
+    time.sleep(0.2)
+   
     with open('data/alumnos.txt', 'w') as archivo:
-          for alumno in total_alumnos:
-                if total_alumnos[i] == alumno:
-                    del total_alumnos[i]
+        
+        for alumno in total_alumnos:
+               
                 alumno_data = alumno.fecha + ','+ alumno.nombre + ',' + alumno.apellido + ',' + alumno.materia + ',' + str(alumno.curso) + ',' + alumno.division + ',' + str(alumno.nota) + ',' + alumno.profesor_nombre + ',' + alumno.profesor_apellido + '\n'
                 archivo.write(alumno_data)
-    mod_tabla_alumnos = desempaquetado_alumnos()
-    tabla_alumnos_encargado(mod_tabla_alumnos)
-    printc('Alumno Eliminado Con Exito','green')
-    msg_continuar()
+    clear_console()    
+    printc('Alumno eliminado Con Exito','green')
+  
+    return total_alumnos
 
 # <------------------------------------------------------------------------------------------------------------------------------------------------------------>
       
@@ -334,13 +419,13 @@ def x(total_alumnos: list, func: callable, txt_validar: str = 'Default') -> None
 
     num = validar_un_input(txt_validar,int)  #' Ingrese el numero del alumno que desea Modificar/Eliminar: '
 
-    if num <= len(total_alumnos) and num > 0:
-        
-        func(num, total_alumnos)
-        
+    if 0 <= num <= len(total_alumnos):
+            
+        mod_tabla_alumnos = func(num, total_alumnos)
+            
         clear_console()
-        
-        tabla_alumnos_encargado(total_alumnos)
+            
+        tabla_alumnos_encargado(mod_tabla_alumnos)
         
         msg_continuar()
         
@@ -380,11 +465,13 @@ def menu_encargados():
     elif op == 2:
         
         x(total_alumnos, mod_alumnos, 'Modificar Alumno del Sistema: ')
+        clear_console()
         return menu_encargados()
     elif op == 3:
         x(total_alumnos, delete_alumno, 'Eliminar Alumno del Sistema: ')
-        return menu_encargados() # 05/10/2023,micaela,hernandez,quimica,1,a,4,Luciana,Lopez
-                                 # 05/10/2023,daniel,herrera,quimica,1,a,4,Luciana,Lopez
+        clear_console()
+        return menu_encargados()
+                             
             
     elif op == 0:
           return

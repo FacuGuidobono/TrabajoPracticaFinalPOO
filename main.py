@@ -8,24 +8,30 @@
 +-------------------------------------+
 '''
 from modulos.decorators import *
-from modulos.login import *
+from modulos.loginencargados import *
+from modulos.loginprofesores import *
 #from modulos.crear_objetos import *
 
 
 
 def login_sistema():
-    titulo = 'LOGIN'.center(120)
+    
+    title = 'SISTEMA DE INSCRIPCIÓN A EXÁMENES'.center(120,' ')
     opciones = ['Encargados', 'Profesores']
     
-    op = menu_principal(opciones, titulo, salir='Volver')
+    op = menu_principal(opciones, title, salir='Salir')
     
     
     if op ==  1:
             login_encargados()
+            return True
     elif op == 2:
             login_profesores()
+            return True
     elif 0:
-            msg_salir('Volviendo al Menu Principal..')
+            msg_salir('Saliendo del Sistema..')
+            time.sleep(1)
+            return False 
        
     
 
@@ -35,15 +41,8 @@ def main() -> bool:
     # para el funcionamiento del sistema si es que estos no existen.
     #crear_base_de_datos()
     
-    title = 'SISTEMA DE INSCRIPCIÓN A EXÁMENES'.center(120,' ')
-    match(menu_principal(['Ingreso al Sistema'], title)):
-        case 1:
-           login_sistema()
-           return True
-            
-        case 0:
-            return False
-        
+    
+     return login_sistema()
     
     
     
